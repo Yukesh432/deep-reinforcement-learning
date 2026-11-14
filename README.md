@@ -22,6 +22,6 @@ python test.py
 
 ## View the hand animations
 
-Install OpenSCAD and open `hand_actions_modular/hand_actions/main.scad`. Press **F5**, choose an action in the Customizer, and enable **View > Animate**. Use **FPS 24** and **Steps 240**, or **Steps 690** for the full joint test.
+Install OpenSCAD and open `hand_actions_modular/hand_actions/main.scad`. Press **F5**, choose an action in the Customizer, and enable **View > Animate**. Select `peel_whole` to move the arm, hand and peeler around a stationary potato; use **FPS 24** and **Steps 960**. Use **Steps 240** for the other actions, or **Steps 690** for the full joint test.
 
 These hand animations are kinematic visual demonstrations. See the [hand actions guide](hand_actions_modular/hand_actions/README.md) for controls and limitations.
