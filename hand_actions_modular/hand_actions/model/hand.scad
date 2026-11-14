@@ -1,8 +1,15 @@
 // Reusable geometry. Millimeters and degrees. No action-specific globals.
 // ORCA-inspired visual model; not official ORCA CAD or a physical mechanism.
 // Pose order: 4 index + 4 middle + 4 ring + 4 little + 4 thumb + 3 wrist.
+use <kinematics.scad>
 function zero_pose() = [for(i=[0:22]) 0];
 function pose4(p,i) = [for(j=[0:3]) p[i+j]];
+
+// Transform an authored upright contact point through the three wrist controls.
+// This mirrors the pivot and nested rotations in bionic_hand below.
+function hand_wrist_point(point,angles)=
+    let(pivot=[0,-2,36],local=rotate_x_point(point-pivot,-90))
+    pivot+rotate_x_point(rotate_point(local,[-angles[0],angles[2],angles[1]]),90);
 
 module bionic_hand(pose=zero_pose(),upright=true,highlighted=-1) {
     assert(len(pose)==23,"Pose must contain exactly 23 angles");
